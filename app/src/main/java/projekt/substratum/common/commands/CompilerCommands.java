@@ -106,6 +106,10 @@ public enum CompilerCommands {
             rootElement.setAttribute("package", packageName);
             rootElement.setAttribute("android:versionName", versionName);
 
+            Element permissionElement = document.createElement("uses-permission");
+            permissionElement.setAttribute("android:name", "com.samsung.android.permission.SAMSUNG_OVERLAY_COMPONENT");
+            rootElement.appendChild(permissionElement);
+
             Element overlayElement = document.createElement("overlay");
             if (!themeOms)
                 overlayElement.setAttribute("android:priority", String.valueOf(legacyPriority));
